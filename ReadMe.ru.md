@@ -6,6 +6,8 @@
     cargo run --release --bin slint_main 
 ```
 
+![image](data/slint_main.png)
+
 ## Как запустить GTK версию
 
 ```bash
