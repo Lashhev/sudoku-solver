@@ -297,6 +297,11 @@ fn main() {
         let app2 = weak1.upgrade().unwrap();
         let sudoku_data = app2.invoke_get_field();
         let grid = import_field_model(&sudoku_data);
+        if grid == SudokuGrid::zeros()
+        {
+            app2.invoke_print_message(SharedString::from("Failed to solve the puzzle"));
+            return;
+        }
         let solution = SudokuSolver::solve(&grid);
         if solution.is_some()
         {
